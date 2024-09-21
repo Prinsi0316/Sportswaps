@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Options</title>
+    {% load static %}
+    <style>
+        body {
+        background-image: url("{% static 'images/pay.jpeg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center; /* Center content */
+            align-items: center; /* Center content */
+            position: relative; /* For positioning the button */
+        }
+        .payment-container {
+            width: 90%;
+            max-width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .payment-options {
+            text-align: left; /* Align to left for better readability */
+            margin-bottom: 20px;
+        }
+        .payment-options input {
+            margin-right: 10px; /* Space between radio and label */
+        }
+        .submit-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+        .success-message {
+            display: none; /* Hide by default */
+            font-size: 24px;
+            color: green;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .tick {
+            font-size: 50px; /* Increase size for emphasis */
+            color: green;
+        }
+        .home-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold; /* Bold text */
+            position: absolute; /* Position it at the bottom right */
+            right: 20px; /* Distance from the right edge */
+            bottom: 20px; /* Distance from the bottom edge */
+        }
+        .home-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function showSuccess() {
+            document.getElementById('success-message').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+
+<div class="payment-container">
+    <div class="header">Choose Payment Method</div>
+
+    <form action="#" method="post" onsubmit="showSuccess(); return false;">
+        <div class="payment-options">
+            <label>
+                <input type="radio" name="payment_method" value="debit_card" required> Debit Card
+            </label><br>
+            <label>
+                <input type="radio" name="payment_method" value="credit_card" required> Credit Card
+            </label><br>
+            <label>
+                <input type="radio" name="payment_method" value="qr_code" required> QR Code
+            </label><br>
+        </div>
+
+        <button type="submit" class="submit-button">Make Payment</button>
+    </form>
+
+    <div id="success-message" class="success-message">
+        <div class="tick">✔️</div>
+        Payment Successful!
+    </div>
+</div>
+
+<button class="home-button" onclick="window.location.href='home.html'">Return to Home</button>
+<button class="home-button" onclick="window.location.href='{% url 'home' %}'">Return to Home</button>
+
+
+
+</body>
+</html>

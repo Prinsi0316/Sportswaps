@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Summary</title>
+    {% load static %}
+    <style>
+        body {
+        background-image: url("{% static 'images/pay.jpeg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        .order-container {
+            width: 90%;
+            max-width: 400px; /* Increased max-width for better layout */
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            color: orange; /* Orange color for the header */
+            margin-bottom: 20px;
+        }
+        .total {
+            font-size: 20px;
+            margin: 20px 0;
+        }
+        .proceed-button {
+            background-color: #4CAF50; /* Green color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            text-decoration: none; /* Remove underline */
+            font-size: 18px;
+        }
+        .proceed-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+
+<div class="order-container">
+    <div class="header">Let's get the equipment!!</div>
+
+    <div class="total">
+        <strong>Total Amount:</strong> ₹<span id="total-amount">2000</span> <!-- Replace with dynamic total -->
+    </div>
+
+    <a href="{% url 'payment_list' %}" class="proceed-button">Proceed to Pay...</a>
+</div>
+
+</body>
+</html>
+

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Categories</title>
+       {% load static %}
+    <style>
+        body {
+        background-image: url("{% static 'images/equip.jpeg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Use min-height for full height */
+            text-align: center;
+        }
+        .category-container {
+            width: 90%;
+            max-width: 500px; /* Increased max-width */
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            width: 100%; /* Full width */
+        }
+        .equipment-list {
+            margin-top: 20px;
+            display: none; /* Hidden by default */
+            text-align: left; /* Align text to the left */
+        }
+        .equipment {
+            margin: 10px 0;
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between; /* Space between price and button */
+            align-items: center; /* Center align items */
+        }
+        .equipment-price {
+            color: #4CAF50;
+        }
+        .buy-button {
+            background-color: #4CAF50; /* Green color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            text-decoration: none; /* Remove underline */
+        }
+        .buy-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+    </style>
+    <script>
+        function showEquipment(sport) {
+            const equipmentLists = document.querySelectorAll('.equipment-list');
+            equipmentLists.forEach(list => {
+                list.style.display = 'none'; // Hide all equipment lists
+            });
+            if (sport) {
+                document.getElementById(sport).style.display = 'block'; // Show selected sport's equipment
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="category-container">
+    <h1>Select a Sport</h1>
+    <select onchange="showEquipment(this.value)">
+        <option value="">--Select Sport--</option>
+        <option value="badminton">Badminton</option>
+        <option value="volleyball">Volleyball</option>
+        <option value="basketball">Basketball</option>
+        <option value="cricket">Cricket</option>
+    </select>
+
+    <!-- Badminton Equipment -->
+    <div id="badminton" class="equipment-list">
+        <div class="equipment">
+            Racket <span class="equipment-price">₹1000</span>
+            <a href="{% url 'order_list' %}" class="buy-button">Buy</a>
+        </div>
+        <div class="equipment">
+            Cock <span class="equipment-price">₹1000</span>
+            <a href="{% url 'order_list' %}" class="buy-button">Buy</a>
+        </div>
+    </div>
+
+    <!-- Volleyball Equipment -->
+    <div id="volleyball" class="equipment-list">
+        <div class="equipment">
+            Volleyball 1 <span class="equipment-price">₹500</span>
+            <a href="{% url 'order_list' %}" class="buy-button">Buy</a>
+        </div>
+        <div class="equipment">
+            Volleyball 2 <span class="equipment-price">₹1000</span>
+            <a href="{% url 'order_list' %}" class="buy-button">Buy</a>
+        </div>
+    </div>
+
+    <!-- Basketball Equipment -->
+    <div id="basketball" class="equipment-list">
+        <div class="equipment">
+            Basketball 1 <span class="equipment-price">₹800</span>
+            <a href="{% url 'order_list' %}" class="buy-button">Buy</a>
+        </div>
+        <div class="equipment">
+            Basketball 2 <span class="equipment-price">₹1200</span>
+            <a href="{% url 'order_list' %}" class="buy-button">Buy</a>
+        </div>
+    </div>
+
+    <!-- Cricket Equipment -->
+    <div id="cricket" class="equipment-list">
+        <div class="equipment">
+            Bat <span class="equipment-price">₹1500</span>
+            <a href="{% url 'order_list' %}" class="buy-button">Buy</a>
+        </div>
+        <div class="equipment">
+            Ball <span class="equipment-price">₹600</span>
+            <a href="{% url 'order_list' %}" class="buy-button">Buy</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

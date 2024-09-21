@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+       {% load static %}
+    <style>
+        body {
+            background-image: url("{% static 'images/back.jpeg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+        .feedback-container {
+            width: 90%;
+            max-width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .stars {
+            font-size: 36px; /* Star size */
+            cursor: pointer;
+        }
+        .star {
+            color: #ccc; /* Default star color */
+        }
+        .star.selected {
+            color: #4CAF50; /* Selected star color */
+        }
+        .feedback-quality {
+            margin: 20px 0;
+        }
+        .review-box {
+            margin-top: 20px;
+        }
+        .submit-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function selectStar(starIndex) {
+            const stars = document.querySelectorAll('.star');
+            stars.forEach((star, index) => {
+                star.classList.toggle('selected', index < starIndex);
+            });
+        }
+    </script>
+</head>
+<body>
+
+<div class="feedback-container">
+    <h1>Feedback</h1>
+
+    <!-- Star Rating -->
+    <div class="stars">
+        <span class="star" onclick="selectStar(1)">★</span>
+        <span class="star" onclick="selectStar(2)">★</span>
+        <span class="star" onclick="selectStar(3)">★</span>
+        <span class="star" onclick="selectStar(4)">★</span>
+        <span class="star" onclick="selectStar(5)">★</span>
+    </div>
+
+    <!-- Quality Options -->
+    <div class="feedback-quality">
+        <label>
+            <input type="radio" name="quality" value="Very Good"> Very Good
+        </label><br>
+        <label>
+            <input type="radio" name="quality" value="Good"> Good
+        </label><br>
+        <label>
+            <input type="radio" name="quality" value="Poor"> Poor
+        </label>
+    </div>
+
+    <!-- Review Box -->
+    <div class="review-box">
+        <textarea rows="4" placeholder="Write your review here..."></textarea>
+    </div>
+
+    <button type="submit" class="submit-button">Submit</button>
+</div>
+
+</body>
+</html>
+

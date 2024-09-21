@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+       {% load static %}
+    <style>
+      body {
+            background-image: url("{% static 'images/back.jpeg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;  /* Allow stacking vertically */
+        }
+        .profile-container {
+
+            background-color: #CA41FB;
+            background-blur: 90%;
+            padding: 40px;  /* Increased padding */
+            width: 90%;  /* Make it responsive */
+            max-width: 400px;  /* Set a max width */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px;  /* Margin for spacing */
+        }
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 4px solid #4CAF50;
+        }
+        .profile-name {
+         background-color: #CA41FB;
+            font-size: 24px;  /* Increased font size */
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .profile-contact, .profile-address {
+         background-color: #CA41FB;
+            font-size: 50px;  /* Increased font size */
+            color: blue;
+            margin-bottom: 10px;
+        }
+        .input-field {
+         background-color: #CA41FB;
+         }
+    </style>
+</head>
+<body>
+
+<div class="profile-container">
+    <!-- Displaying user's image -->
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToOoJnrndFqTIcvygz9DmXfGbhxfTCxss17g&s" alt="User Image" class="profile-image">
+
+    <!-- Displaying user's name -->
+    <!-- Form to update contact number and address -->
+    <form action="{% url 'userprofile_list'%}" method="post">
+        {% csrf_token %}
+
+        <div class="input-field">
+            <input type="text" name="phone_no" placeholder="Contact Number" value="{{ profile.phone_no }}">
+        </div>
+
+        <div class="input-field">
+            <textarea name="address" rows="4" placeholder="Address">{{ profile.address }}</textarea>
+        </div>
+
+        <button type="submit" class="submit-button">Update</button>
+    </form>
+
+</div>
+
+</body>
+</html>
+

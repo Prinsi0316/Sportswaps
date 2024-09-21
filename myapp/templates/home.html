@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    {% load static %}
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("{% static 'images/sportswap.jpeg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        .navbar {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.5); /* Optional: gives a semi-transparent background to the navbar */
+            padding: 10px;
+        }
+
+        .navbar button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .content {
+            background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+            padding: 20px 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.5em;
+            margin-top: 10px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #f39c12;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #e67e22;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <button onclick="window.location.href='userprofiles'">User Profile</button>
+        <button onclick="window.location.href='countries'">Country</button>
+        <button onclick="window.location.href='sportcategories'">Sports Category</button>
+        <button onclick="window.location.href='feedbacks'">Feedback</button>
+    </div>
+
+    <div class="content">
+        <h1>Welcome to SPORTS SWAP!</h1>
+        <p>Buy your favourite sports equipment at minimum cost.</p>
+    </div>
+</body>
+</html>
+
+
